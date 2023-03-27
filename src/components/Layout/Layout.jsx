@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navigation from "components/Navigation/Navigation";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
 const Layout = () => {
   return (
@@ -10,6 +10,14 @@ const Layout = () => {
       <ContentWrapper>
         <Outlet />
       </ContentWrapper>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          const paths = ["/locations"];
+          return paths.includes(location.pathname)
+            ? location.pathname
+            : location.key;
+        }}
+      />
     </Wrapper>
   );
 };

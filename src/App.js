@@ -1,5 +1,9 @@
 import Home from "pages/Home/Home";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  ScrollRestoration,
+} from "react-router-dom";
 import About from "pages/About/About";
 import AppDesign from "pages/AppDesign/AppDesign";
 import Contact from "pages/Contact/Contact";
@@ -39,7 +43,7 @@ function App() {
           element: <Locations />,
         },
         {
-          path: "web-design",
+          path: "/web-design",
           element: <WebDesign />,
         },
       ],

@@ -1,35 +1,55 @@
 import React from "react";
+import AboutUsHero from "components/AboutUsHero/AboutUsHero";
+import AboutCard from "components/AboutCard/AboutCard";
+import wordClassMobile from "assets/about/mobile/image-world-class-talent.jpg";
+import wordClassTablet from "assets/about/tablet/image-world-class-talent.jpg";
+import wordClassDesktop from "assets/about/desktop/image-world-class-talent.jpg";
+import realDealMobile from "assets/about/mobile/image-real-deal.jpg";
+import realDealTablet from "assets/about/tablet/image-real-deal.jpg";
+import realDealDesktop from "assets/about/desktop/image-real-deal.jpg";
+import CountryList from "CountryList/CountryList";
+import Footer from "components/Footer/Footer";
+import PageWrapper from "components/PageWrapper";
 
 const About = () => {
   return (
-    <div>
-      Our Company Locations Contact About us Founded in 2010, we are a creative
-      agency that produces lasting results for our clients. We’ve partnered with
-      many startups, corporations, and nonprofits alike to craft designs that
-      make real impact. We’re always looking forward to creating brands,
-      products, and digital experiences that connect with our clients'
-      audiences. World-class talent We are a crew of strategists,
-      problem-solvers, and technologists. Every design is thoughtfully crafted
-      from concept to launch, ensuring success in its given market. We are
-      constantly updating our skills in a myriad of platforms. Our team is
-      multi-disciplinary and we are not merely interested in form — content and
-      meaning are just as important. We give great importance to craftsmanship,
-      service, and prompt delivery. Clients have always been impressed with our
-      high-quality outcomes that encapsulates their brand’s story and mission.
-      The real deal As strategic partners in our clients’ businesses, we are
-      ready to take on any challenge as our own. Solving real problems require
-      empathy and collaboration, and we strive to bring a fresh perspective to
-      every opportunity. We make design and technology more accessible and give
-      you tools to measure success. We are visual storytellers in appealing and
-      captivating ways. By combining business and marketing strategies, we
-      inspire audiences to take action and drive real results. Canada See
-      location Australia See location United Kingdom See location Let’s talk
-      about your project Ready to take it to the next level? Contact us today
-      and find out how our expertise can help your business grow. Get in touch
-      Our company Locations Contact Designo Central Office 3886 Wellington
-      Street Toronto, Ontario M9C 3J5 Contact Us (Central Office) P : +1
-      253-863-8967 M : contact@designo.co
-    </div>
+    <>
+      <PageWrapper>
+        <AboutUsHero />
+        <AboutCard
+          mobileImage={wordClassMobile}
+          tabletImage={wordClassTablet}
+          desktopImage={wordClassDesktop}
+          title="World-class talent"
+          firstParagraph="We are a crew of strategists, problem-solvers, and technologists. Every
+      design is thoughtfully crafted from concept to launch, ensuring success in
+      its given market. We are constantly updating our skills in a myriad of
+      platforms."
+          secondParagraph="Our team is multi-disciplinary and we are not merely interested in form —
+      content and meaning are just as important. We give great importance to
+      craftsmanship, service, and prompt delivery. Clients have always been
+      impressed with our high-quality outcomes that encapsulates their brand’s
+      story and mission. "
+        />
+        <CountryList />
+        <AboutCard
+          left
+          mobileImage={realDealMobile}
+          tabletImage={realDealTablet}
+          desktopImage={realDealDesktop}
+          title="The real deal"
+          firstParagraph="As strategic partners in our clients’ businesses, we are ready to take on
+      any challenge as our own. Solving real problems require empathy and
+      collaboration, and we strive to bring a fresh perspective to every
+      opportunity. We make design and technology more accessible and give you
+      tools to measure success."
+          secondParagraph="We are visual storytellers in appealing and captivating ways. By combining
+      business and marketing strategies, we inspire audiences to take action and
+      drive real results."
+        />
+      </PageWrapper>
+      <Footer />
+    </>
   );
 };
 

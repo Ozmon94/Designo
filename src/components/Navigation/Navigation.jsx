@@ -10,11 +10,19 @@ const Navigation = () => {
   const location = useLocation();
 
   const handleOnClick = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen((prev) => {
+      if (prev === false) {
+        document.body.style.position = "fixed";
+      } else {
+        document.body.style.position = "";
+      }
+      return !prev;
+    });
   };
 
   useEffect(() => {
     setIsOpen(false);
+    document.body.style.position = "";
   }, [location]);
   return (
     <Wrapper>
@@ -41,8 +49,26 @@ const Navigation = () => {
     </Wrapper>
   );
 };
+const DesktopNavigation = styled.div`
+  display: none;
 
-const DesktopLink = styled(Link)``;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 42px;
+  }
+`;
+
+const DesktopLink = styled(Link)`
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${(props) => props.theme.colors.darkGrey};
+  letter-spacing: 2px;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 const MobileLink = styled(Link)`
   text-decoration: none;
@@ -66,21 +92,15 @@ const MobileListWrapper = styled.div`
   top: 96px;
   left: 0;
   display: ${(props) => (props.isOpen ? "block" : "none")};
+  z-index: 1;
 `;
 
 const MobileNavigation = styled.div`
-  @media screen and (min-width: 376px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
 
-const DesktopNavigation = styled.div`
-  display: none;
-
-  @media screen and (min-width: 376px) {
-    display: block;
-  }
-`;
 const NavButton = styled.button`
   display: flex;
   justify-content: center;
@@ -95,6 +115,15 @@ const Wrapper = styled.div`
   padding: 34px 24px;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 64px 40px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 64px 20px;
+  }
 `;
 
 const LogoWrapper = styled(Link)`
